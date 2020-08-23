@@ -5,14 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- My CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="assets/style.css">
+    
 
     <title>Weather Dashboard</title>
   </head>
@@ -20,30 +22,47 @@
     <nav class="navbar navbar-dark bg-dark p-3">
        <h1 class="text-white mx-auto">Weather Dashboard</h1>
     </nav>
-
-    <div class="card mt-3 ml-3" id="searchArea">
-        <h5 class="card-header">
-          <strong>Search for a City: </strong>
-          <form class="form-inline my-2">
-            <div class="form-group my-auto">
-              <label for="searchInput" class="sr-only"></label>
-              <input type="text" class="form-control" id="searchInput">
+    <div class="container-fluid">
+        <div class="row" id="searchArea">
+            <div class="col-md-4 bg-light sidebar sidebar-sticky">
+                <h5 class="sidebar-heading p-3">
+                <strong>Search for a City: </strong>
+                <form class="form-inline my-2">
+                    <div class="form-group my-auto">
+                    <label for="searchInput" class="sr-only"></label>
+                    <input type="text" class="form-control" id="searchInput">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2 p-2 my-auto fas fa-search" id="searchBtn"></button>
+                </form>
+                </h5>
+                <ul class="list-group p-3 mb-3" id="searchHistory">
+                    
+                        <button type="button" class="list-group-item list-group-item-action p-3"></button>
+                        <button type="button" class="list-group-item list-group-item-action p-3"></button>
+                        <button type="button" class="list-group-item list-group-item-action p-3"></button>
+                        <button type="button" class="list-group-item list-group-item-action p-3"></button>
+                        <button type="button" class="list-group-item list-group-item-action p-3"></button>
+        
+                </ul>
             </div>
-            <button type="submit" class="btn btn-primary mb-2 p-2 my-auto fas fa-search"></button>
-          </form>
-        </h5>
-        <ul class="list-group list-group-flush" id="searchHistory">
-        </ul>
+        </div>
+        <div class="row float-right align-self-end">
+            <div class="col-md-7 p-3" id="currentCity"></div>
+                <h1 id="cityName"></h1>
+                <p id="temp"></p>
+                <p id="humidity"></p>
+                <p id="wind"></p>
+                <p id="uv"></p>
+            <div class="col-md-7 p-3" id="forecastDiv">
+                <h3>5 Day Forecast:</h3> 
+            </div>
+        </div>    
     </div>
-    <div class="row">
-        <div class="col-md-8 p-3" id="currentCity"></div>
-        <div class="col-md-8 p-3" id="forecastDiv"></div>
-    </div>    
-
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
   </body>
 </html>
