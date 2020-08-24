@@ -36,21 +36,23 @@ $('#searchBtn').click(function() {
         var weatherEmoji;
         if (iconCode === '01d'){
             weatherEmoji = '☀️';
-        } else if (iconCode === '02d'){
+        } else if (iconCode === '01n'){
+            weatherEmoji = '🌙';
+        } else if (iconCode === '02d' || iconCode === '02n'){
             weatherEmoji = '🌤️';
-        } else if (iconCode === '03d'){
+        } else if (iconCode === '03d' || iconCode === '03n'){
             weatherEmoji = '☁';
-        } else if (iconCode === '04d'){
+        } else if (iconCode === '04d' || iconCode === '04n'){
             weatherEmoji = '☁️';
-        } else if (iconCode === '09d'){
+        } else if (iconCode === '09d' || iconCode === '09n'){
             weatherEmoji = '🌧️';
-        } else if (iconCode === '10d'){
+        } else if (iconCode === '10d' || iconCode === '10n'){
             weatherEmoji = '🌦️';
-        } else if (iconCode === '11d'){
+        } else if (iconCode === '11d' || iconCode === '11n'){
             weatherEmoji = '⛈️';
-        } else if (iconCode === '13d'){
+        } else if (iconCode === '13d' || iconCode === '12n'){
             weatherEmoji = '❄️';
-        } else if (iconCode === '50d'){
+        } else if (iconCode === '50d' || iconCode === '50n'){
             weatherEmoji = '🌫️';
         };
         
@@ -83,6 +85,53 @@ $('#searchBtn').click(function() {
         $('#date3').text(date3);
         $('#date4').text(date4);
         $('#date5').text(date5);
+
+        var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey;
+
+        $.ajax({
+            url: forecastURL,
+            method: "GET"
+        }).then(function(result){
+            console.log(result);
+
+           
+                var forecastCodes = [result.list[1].weather[0].icon, 
+                result.list[2].weather[0].icon,
+                result.list[3].weather[0].icon,
+                result.list[4].weather[0].icon,
+                result.list[5].weather[0].icon]
+
+                var emojiDivs = [$('#emoji1'),
+                $('#emoji2'),
+                $('#emoji3'),
+                $('#emoji4'),
+                $('#emoji5'),
+                ]
+
+                for (var i = 0; i < forecastCodes.length; i++){
+                    if (forecastCodes[i] === '01d'){
+                        emojiDivs[i].text('☀️');
+                    } else if (forecastCodes[i] === '01n'){
+                        emojiDivs[i].text('🌙');
+                    }else if (forecastCodes[i] === '02d' || forecastCodes[i] === '02n'){
+                        emojiDivs[i].text('🌤️');
+                    } else if (forecastCodes[i] === '03d' || forecastCodes[i] === '03n'){
+                        emojiDivs[i].text('☁');
+                    } else if (forecastCodes[i] === '04d' || forecastCodes[i] === '04n'){
+                        emojiDivs[i].text('☁️');
+                    } else if (forecastCodes[i] === '09d' || forecastCodes[i] === '09n'){
+                        emojiDivs[i].text('🌧️');
+                    } else if (forecastCodes[i] === '10d' || forecastCodes[i] === '10n'){
+                        emojiDivs[i].text('🌦️');
+                    } else if (forecastCodes[i] === '11d' || forecastCodes[i] === '11n'){
+                        emojiDivs[i].text('⛈️');
+                    } else if (forecastCodes[i] === '13d' || forecastCodes[i] === '13n'){
+                        emojiDivs[i].text('❄️');
+                    } else if (forecastCodes[i] === '50d' || forecastCodes[i] === '50n'){
+                        emojiDivs[i].text('🌫️');
+                    } 
+                }
+        })
 
     })
 
