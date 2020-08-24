@@ -25,10 +25,33 @@ $('#searchBtn').click(function() {
         temp = convertTemp(response.main.temp);
         var humidity = response.main.humidity;
         var wind = response.wind.speed;
-        var weatherEmoji = response.weather[0].icon;
+        
+        var iconCode = response.weather[0].icon;
 
+        var weatherEmoji;
+        if (iconCode === '01d'){
+            weatherEmoji = '☀️';
+        } else if (iconCode === '02d'){
+            weatherEmoji = '🌤️';
+        } else if (iconCode === '03d'){
+            weatherEmoji = '☁';
+        } else if (iconCode === '04d'){
+            weatherEmoji = '☁️';
+        } else if (iconCode === '09d'){
+            weatherEmoji = '🌧️';
+        } else if (iconCode === '10d'){
+            weatherEmoji = '🌦️';
+        } else if (iconCode === '11d'){
+            weatherEmoji = '⛈️';
+        } else if (iconCode === '13d'){
+            weatherEmoji = '❄️';
+        } else if (iconCode === '50d'){
+            weatherEmoji = '🌫️';
+        };
+        
         $('#currentCity').addClass('border border-secondary"')
         $('#cityName').text(cityName + " (" + date + ") " + weatherEmoji);
+ 
 
         $('#temp').text("Temperature: " + temp + fSymbol);
         $('#humidity').text("Humidity: " + humidity + "%");
@@ -57,3 +80,4 @@ $('#searchBtn').click(function() {
         return temp;
     }
 });
+
