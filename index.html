@@ -22,9 +22,9 @@
     <nav class="navbar navbar-dark bg-dark p-3">
        <h1 class="text-white mx-auto">Weather Dashboard</h1>
     </nav>
-    <div class="container-fluid">
-        <div class="row" id="searchArea">
-            <div class="col-md-4 bg-light sidebar sidebar-sticky">
+    <div class="container-fluid row">
+        <div class="h-100 ml-n4 col-md-5" id="searchArea">
+            <div class="bg-light sidebar sidebar-sticky p-3">
                 <h5 class="sidebar-heading p-3">
                 <strong>Search for a City: </strong>
                 <form class="form-inline my-2">
@@ -46,20 +46,21 @@
                 </ul>
             </div>
         </div>
-        <div class="row float-right align-self-end">
-            <div class="col-md-7 p-3" id="currentCity"></div>
-                <h1 id="cityName"></h1>
-                <p id="temp"></p>
-                <p id="humidity"></p>
-                <p id="wind"></p>
-                <p id="uv"></p>
-            <div class="col-md-7 p-3" id="forecastDiv">
+        <div class="float-right col-md-7">
+            <div class="p-3 container mt-3" id="currentCity">
+                <h3 class="my-3" id="cityName"></h3>
+                <h5 class="lead" id="temp"></h5>
+                <h5 class="lead" id="humidity"></h5>
+                <h5 class="lead" id="wind"></h5>
+                <h5 class="lead" id="uv"></h5>
+            </div>
+            <div class="p-3" id="forecastDiv">
                 <h3>5 Day Forecast:</h3> 
             </div>
         </div>    
     </div>
     <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
