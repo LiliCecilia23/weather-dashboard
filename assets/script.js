@@ -5,6 +5,11 @@ let searchHistory = $('#searchHistory'); //area where local storage city searche
 let currentCity = $('#currentCity'); //where current searched city weather info is displayed
 let forecastDiv = $('#forecastDiv'); //where 5 day forecast is displayed
 let date = moment().format('L'); 
+let date1 = moment().add(1, 'day').format('L');
+let date2 = moment().add(2, 'day').format('L');
+let date3 = moment().add(3, 'day').format('L');
+let date4 = moment().add(4, 'day').format('L');
+let date5 = moment().add(5, 'day').format('L');
 const fSymbol = '\u2109'
 
 
@@ -66,12 +71,18 @@ $('#searchBtn').click(function() {
             url: uvURL,
             method: "GET"
         }).then(function(result) {
-            console.log(result);
-            
             var uv = result.value;
             $('#uv').text("UV Index: " + uv);
         });
 
+
+        $('.card').addClass('bg-primary text-white');
+        $('#forecastTitle').text("5 Day Forecast:");
+        $('#date1').text(date1);
+        $('#date2').text(date2);
+        $('#date3').text(date3);
+        $('#date4').text(date4);
+        $('#date5').text(date5);
 
     })
 
