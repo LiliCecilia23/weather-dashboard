@@ -13,13 +13,16 @@ let date5 = moment().add(5, 'day').format('L');
 const fSymbol = '\u2109'
 
 
+$('.card').css("display" , "none");
+
 $('#searchBtn').click(function() {
     event.preventDefault();
     let cityName = $('#searchInput').val();
     var apiKey = "c16c7413aa437db7ca505d50166112cf"
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
     var temp;
-    
+    var forecastTemp;
+    var forecastHumidity;
     
     $.ajax({
         url: queryURL,
@@ -74,10 +77,22 @@ $('#searchBtn').click(function() {
             method: "GET"
         }).then(function(result) {
             var uv = result.value;
-            $('#uv').text("UV Index: " + uv);
+            $('#uv').text("UV Index: ");
+            $('#uvValue').text(uv);
+            
+            // if (uv < 3){
+            //     $('#uvValue').addClass('bg-success');
+            // } else if (uv > 2 && uv < 6){
+            //     $('#uvValue').addClass('bg-warning');
+            // }else if (uv > 5 && uv < 8){
+            //     $('#uvValue').addClass('bg-warning');
+            // } else {
+            //     $('#uvValue').addClass('bg-danger');
+            // }
+            
         });
 
-
+        $('.card').css("display" , "block");
         $('.card').addClass('bg-primary text-white');
         $('#forecastTitle').text("5 Day Forecast:");
         $('#date1').text(date1);
@@ -93,47 +108,65 @@ $('#searchBtn').click(function() {
             method: "GET"
         }).then(function(result){
             console.log(result);
+            var forecastCodes = [result.list[1].weather[0].icon, 
+            result.list[2].weather[0].icon,
+            result.list[3].weather[0].icon,
+            result.list[4].weather[0].icon,
+            result.list[5].weather[0].icon];
 
-           
-                var forecastCodes = [result.list[1].weather[0].icon, 
-                result.list[2].weather[0].icon,
-                result.list[3].weather[0].icon,
-                result.list[4].weather[0].icon,
-                result.list[5].weather[0].icon]
+            var emojiDivs = [$('#emoji1'),
+            $('#emoji2'),
+            $('#emoji3'),
+            $('#emoji4'),
+            $('#emoji5')];
 
-                var emojiDivs = [$('#emoji1'),
-                $('#emoji2'),
-                $('#emoji3'),
-                $('#emoji4'),
-                $('#emoji5'),
-                ]
+            for (var i = 0; i < forecastCodes.length; i++){
+                if (forecastCodes[i] === '01d'){
+                    emojiDivs[i].text('☀️');
+                } else if (forecastCodes[i] === '01n'){
+                    emojiDivs[i].text('🌙');
+                }else if (forecastCodes[i] === '02d' || forecastCodes[i] === '02n'){
+                    emojiDivs[i].text('🌤️');
+                } else if (forecastCodes[i] === '03d' || forecastCodes[i] === '03n'){
+                    emojiDivs[i].text('☁');
+                } else if (forecastCodes[i] === '04d' || forecastCodes[i] === '04n'){
+                    emojiDivs[i].text('☁️');
+                } else if (forecastCodes[i] === '09d' || forecastCodes[i] === '09n'){
+                    emojiDivs[i].text('🌧️');
+                } else if (forecastCodes[i] === '10d' || forecastCodes[i] === '10n'){
+                    emojiDivs[i].text('🌦️');
+                } else if (forecastCodes[i] === '11d' || forecastCodes[i] === '11n'){
+                    emojiDivs[i].text('⛈️');
+                } else if (forecastCodes[i] === '13d' || forecastCodes[i] === '13n'){
+                    emojiDivs[i].text('❄️');
+                } else if (forecastCodes[i] === '50d' || forecastCodes[i] === '50n'){
+                    emojiDivs[i].text('🌫️');
+                } 
+            }
 
-                for (var i = 0; i < forecastCodes.length; i++){
-                    if (forecastCodes[i] === '01d'){
-                        emojiDivs[i].text('☀️');
-                    } else if (forecastCodes[i] === '01n'){
-                        emojiDivs[i].text('🌙');
-                    }else if (forecastCodes[i] === '02d' || forecastCodes[i] === '02n'){
-                        emojiDivs[i].text('🌤️');
-                    } else if (forecastCodes[i] === '03d' || forecastCodes[i] === '03n'){
-                        emojiDivs[i].text('☁');
-                    } else if (forecastCodes[i] === '04d' || forecastCodes[i] === '04n'){
-                        emojiDivs[i].text('☁️');
-                    } else if (forecastCodes[i] === '09d' || forecastCodes[i] === '09n'){
-                        emojiDivs[i].text('🌧️');
-                    } else if (forecastCodes[i] === '10d' || forecastCodes[i] === '10n'){
-                        emojiDivs[i].text('🌦️');
-                    } else if (forecastCodes[i] === '11d' || forecastCodes[i] === '11n'){
-                        emojiDivs[i].text('⛈️');
-                    } else if (forecastCodes[i] === '13d' || forecastCodes[i] === '13n'){
-                        emojiDivs[i].text('❄️');
-                    } else if (forecastCodes[i] === '50d' || forecastCodes[i] === '50n'){
-                        emojiDivs[i].text('🌫️');
-                    } 
-                }
-        })
+            var tempDivs = [$('#temp1'),
+            $('#temp2'),
+            $('#temp3'),
+            $('#temp4'),
+            $('#temp5')];
 
-    })
+            for (var i = 0; i < tempDivs.length; i++){
+                forecastTemp = convertTemp(result.list[i + 1].main.temp);
+                tempDivs[i].text("Temp: " + forecastTemp + fSymbol);
+            }
+
+            var humidityDivs = [$('#humidity1'),
+            $('#humidity2'),
+            $('#humidity3'),
+            $('#humidity4'),
+            $('#humidity5')]
+
+            for (var i = 0; i < humidityDivs.length; i++){
+                forecastHumidity = result.list[i + 1].main.humidity;
+                humidityDivs[i].text("Humidity: " + forecastHumidity + "%");
+            }
+        });
+    });
 
     function convertTemp (kelvin) {
         var temp = Math.floor((kelvin - 273.15) * 1.80 + 32);
