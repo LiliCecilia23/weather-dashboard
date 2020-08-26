@@ -80,15 +80,15 @@ $('#searchBtn').click(function() {
             $('#uv').text("UV Index: ");
             $('#uvValue').text(uv);
             
-            // if (uv < 3){
-            //     $('#uvValue').addClass('bg-success');
-            // } else if (uv > 2 && uv < 6){
-            //     $('#uvValue').addClass('bg-warning');
-            // }else if (uv > 5 && uv < 8){
-            //     $('#uvValue').addClass('bg-warning');
-            // } else {
-            //     $('#uvValue').addClass('bg-danger');
-            // }
+            if (uv < 3){
+                $('#uvValue').addClass('bg-success');
+            } else if (uv > 2 && uv < 6){
+                $('#uvValue').addClass('bg-warning');
+            }else if (uv > 5 && uv < 8){
+                $('#uvValue').addClass('highStyle');
+            } else {
+                $('#uvValue').addClass('bg-danger');
+            }
             
         });
 
@@ -172,5 +172,11 @@ $('#searchBtn').click(function() {
         var temp = Math.floor((kelvin - 273.15) * 1.80 + 32);
         return temp;
     }
+
+    function cityList (){
+        var citiesSearched = $('<button>');
+        citiesSearched.text(cityName);
+        $('#searchHistory').append(citiesSearched);
+    };
 });
 
