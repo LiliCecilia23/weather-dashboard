@@ -5,26 +5,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="assets/style.css">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+     <!-- My CSS -->
+     <link rel="stylesheet" href="assets/style.css">
 
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 
-    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Yeseva+One&display=swap" rel="stylesheet">
 
     <title>Weather Dashboard</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark p-3">
-       <h1 class="text-white mx-auto">Weather Dashboard</h1>
+    <nav class="navbar p-3">
+       <h1 class="mx-auto">Weather Dashboard</h1>
     </nav>
     <div class="container-fluid row">
-        <div class="h-100 ml-n4 col-md-5" id="searchArea">
-            <div class="bg-light sidebar sidebar-sticky p-3">
+        <div class="h-100 ml-n4 col-md-4 mt-5 rounded" id="searchArea">
+            <div class="sidebar sidebar-sticky p-3">
                 <h5 class="sidebar-heading p-3">
                 <strong>Search for a City: </strong>
                 <form class="form-inline my-2">
@@ -32,24 +33,25 @@
                     <label for="searchInput" class="sr-only"></label>
                     <input type="text" class="form-control" id="searchInput">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2 p-2 my-auto fas fa-search" id="searchBtn"></button>
+                    <button type="submit" class="btn btn-info mb-2 p-2 my-auto fas fa-search" id="searchBtn"></button>
                 </form>
                 </h5>
                 <ul class="list-group p-3 mb-3" id="searchHistory"></ul>
             </div>
         </div>
-        <div class="float-right col-md-7">
-            <div class="p-3 container mt-3" id="currentCity">
+        <div class="col-md-1"></div>
+        <div class="float-right col-md-7 justify-content-end">
+            <div class="p-3 container mt-5 rounded" id="currentCity">
                 <h3 class="my-3" id="cityName"></h3>
-                <h5 class="lead" id="temp"></h5>
-                <h5 class="lead" id="humidity"></h5>
-                <h5 class="lead" id="wind"></h5>
+                <h5 class="leady" id="temp"></h5>
+                <h5 class="leady" id="humidity"></h5>
+                <h5 class="leady" id="wind"></h5>
                 <div class="row px-3">
-                    <h5 class="lead pr-1" id="uv"></h5>
-                    <h5 class="lead px-1 text-white rounded" id="uvValue"></h5>
+                    <h5 class="leady pr-1" id="uv"></h5>
+                    <h5 class="leady px-1 text-white rounded" id="uvValue"></h5>
                 </div>
             </div>
-            <div class="p-3" id="forecastDiv">
+            <div class="p-3 mt-3 rounded" id="forecastDiv">
                 <h3 class="my-3" id="forecastTitle"></h3> 
                 <div class="container row">
                     <div class="card m-2 p-1">

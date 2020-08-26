@@ -14,6 +14,8 @@ const fSymbol = '\u2109'
 
 
 $('.card').css("display" , "none");
+$('#currentCity').css("display", "none");
+$('#forecastDiv').css("display", "none");
 
 function pastCities (){
     var storedCities = $('<button>');
@@ -33,7 +35,8 @@ $('#searchBtn').click(function () {
     var forecastTemp;
     var forecastHumidity;
     
-    
+    $('#currentCity').css("display", "block");
+    $('#forecastDiv').css("display", "block");
     cityList(); 
     storeCity();
 
@@ -72,7 +75,6 @@ $('#searchBtn').click(function () {
             weatherEmoji = '🌫️';
         };
         
-        $('#currentCity').addClass('border border-secondary"')
         $('#cityName').text(cityName + " (" + date + ") " + weatherEmoji);
  
 
@@ -106,7 +108,6 @@ $('#searchBtn').click(function () {
         });
 
         $('.card').css("display" , "block");
-        $('.card').addClass('bg-primary text-white');
         $('#forecastTitle').text("5 Day Forecast:");
         $('#date1').text(date1);
         $('#date2').text(date2);
@@ -202,7 +203,9 @@ $('.cityBtns').click(function(){
     event.preventDefault();
     let pastCity = $(this).text();
 
-    console.log(pastCity)
+    $('#currentCity').css("display", "block");
+    $('#forecastDiv').css("display", "block");
+
 
     var apiKey = "03f0f4735c1b7aeda3d4de5aa3f8bf5a"
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + pastCity + "&appid=" + apiKey;
@@ -245,7 +248,6 @@ $('.cityBtns').click(function(){
             weatherEmoji = '🌫️';
         };
         
-        $('#currentCity').addClass('border border-secondary"')
         $('#cityName').text(pastCity + " (" + date + ") " + weatherEmoji);
  
 
@@ -279,7 +281,6 @@ $('.cityBtns').click(function(){
         });
 
         $('.card').css("display" , "block");
-        $('.card').addClass('bg-primary text-white');
         $('#forecastTitle').text("5 Day Forecast:");
         $('#date1').text(date1);
         $('#date2').text(date2);

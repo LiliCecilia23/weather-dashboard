@@ -1,3 +1,64 @@
 .highStyle {
     background-color: orange;
 }
+
+.navbar {
+    background-color: #216583;
+    color: #f7be16;
+    border-bottom: dashed 5px #F9D56A;
+    font-family: 'Yeseva One', cursive;
+    
+}
+
+body {
+    background-color: #00818a;
+}
+
+#searchArea {
+    background-color: #293462;
+    border: solid 5px #F9D56A;
+    color: #f7be16;
+}
+
+.cityBtns {
+    background-color: #F9D56A;
+    color: #293462;
+    font-family: 'Roboto', sans-serif;
+}
+
+#currentCity {
+    background-color: #293462;
+    border: solid 5px #F9D56A;
+    color: #f7be16;
+}
+
+#forecastDiv {
+    background-color: #293462;
+    border: solid 5px #F9D56A;
+    color: #f7be16;
+}
+
+.card{
+    background-color: #00818a;
+    color: #F9D56A;
+    font-family: 'Roboto', sans-serif;
+}
+
+#cityName {
+    font-family: 'Yeseva One', cursive;
+}
+
+.sidebar-heading {
+    font-family: 'Yeseva One', cursive;
+}
+
+.leady {
+    font-family: 'Roboto', sans-serif;
+}
+
+#forecastTitle {
+    font-family: 'Yeseva One', cursive;
+}
+
+
+F9D56A - f7be16 - 00818a - 216583 - 293462 
