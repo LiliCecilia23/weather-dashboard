@@ -1,7 +1,7 @@
 # weather-dashboard
 Homework assignment for week 6 of Coding Bootcamp
 
-<img src="./assets/screenshot7" alt="screenshot of deployed app">
+<img src="./assets/screenshot7.png" alt="screenshot of deployed app">
 
 GitHub Pages link: https://lilicecilia23.github.io/weather-dashboard/
 <br>
