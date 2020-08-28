@@ -30,7 +30,7 @@ $('#searchBtn').click(function () {
     event.preventDefault();
     let cityName = $('#searchInput').val();
     var apiKey = "03f0f4735c1b7aeda3d4de5aa3f8bf5a"
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
     var temp;
     var forecastTemp;
     var forecastHumidity;
@@ -85,7 +85,7 @@ $('#searchBtn').click(function () {
 
         var lat = response.coord.lat;
         var lon = response.coord.lon;
-        var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
+        var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
         
         $.ajax({
             url: uvURL,
@@ -115,7 +115,7 @@ $('#searchBtn').click(function () {
         $('#date4').text(date4);
         $('#date5').text(date5);
 
-        var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey;
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey;
 
         $.ajax({
             url: forecastURL,
@@ -208,7 +208,7 @@ $('.cityBtns').click(function(){
 
 
     var apiKey = "03f0f4735c1b7aeda3d4de5aa3f8bf5a"
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + pastCity + "&appid=" + apiKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + pastCity + "&appid=" + apiKey;
     var temp;
     var forecastTemp;
     var forecastHumidity;
@@ -258,7 +258,7 @@ $('.cityBtns').click(function(){
 
         var lat = response.coord.lat;
         var lon = response.coord.lon;
-        var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
+        var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
         
         $.ajax({
             url: uvURL,
@@ -288,7 +288,7 @@ $('.cityBtns').click(function(){
         $('#date4').text(date4);
         $('#date5').text(date5);
 
-        var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + pastCity + "&appid=" + apiKey;
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + pastCity + "&appid=" + apiKey;
 
         $.ajax({
             url: forecastURL,
