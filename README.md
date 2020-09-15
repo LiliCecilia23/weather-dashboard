@@ -12,3 +12,5 @@ as well as a 5-day forecast. When you search a city, it is saved in local storag
 the search bar. When you click the button of a past-searched city, it will re-populate the weather
 information for that city. This UV index is also colored to indicate the severity of the conditions
 at the time of your search (ranging from green-good to red-severe).
+<br>
+Technologies Used: HTML, CSS, JavaScript, jQuery, Moment.js, OpenWeatherMapAPI
