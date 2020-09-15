@@ -1,5 +1,4 @@
 # weather-dashboard
-Homework assignment for week 6 of Coding Bootcamp
 
 <img src="./assets/screenshot7.png" alt="screenshot of deployed app">
 
